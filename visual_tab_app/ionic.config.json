@@ -1,0 +1,7 @@
+{
+  "name": "visual_tab_app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
