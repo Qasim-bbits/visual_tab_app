@@ -1,7 +1,25 @@
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { Route } from 'react-router-dom';
+import {
+    IonApp,
+    IonRouterOutlet,
+    setupIonicReact,
+    IonTabs,
+    IonTabBar,
+    IonTabButton,
+    IonIcon,
+    IonLabel,
+    IonAvatar,
+    IonMenu,
+    IonList,
+    IonContent,
+} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import { homeOutline, personOutline, ellipsisHorizontalOutline, cameraOutline, diamondOutline } from 'ionicons/icons';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/login';
+import AssetTracking from './pages/Asset Tracking/assetTracking';
+import Wrapper from './components/Wrapper/wrapper';
+import NoOfItems from './pages/Asset Tracking/No of Items/noOfItems';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,18 +43,50 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+    <IonApp>
+        <IonReactRouter>
+            <IonMenu contentId="main">
+                <IonContent>
+                    <IonList>
+                        // here you can put your side menu items with router links
+                    </IonList>
+                </IonContent>
+            </IonMenu>
+            <IonTabs>
+                <IonRouterOutlet>
+                    <Route path="/" component={Login} exact={true} />
+                        <Wrapper>
+                            <Route path="/home" component={Home} exact={true} />
+                            <Route path="/myAssets" component={AssetTracking} exact={true} />
+                            <Route path="/noOfItems" component={NoOfItems} exact={true} />
+                        </Wrapper>
+                </IonRouterOutlet>
+                <IonTabBar slot="bottom" style={{overflow: 'visible'}}>
+                    <IonTabButton tab="tab1" href="/home">
+                        <IonIcon icon={homeOutline} />
+                        <IonLabel>Home</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="tab2" href="/myAssets">
+                        <IonIcon icon={diamondOutline} />
+                        <IonLabel>My Assets</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="tab3" href="/camera">
+                        <IonAvatar className='camera-icon' style={{backgroundColor:'rgba(19,121,219,1)'}}>
+                            <IonIcon icon={cameraOutline} size='large' style={{color:'white'}}/>
+                        </IonAvatar>
+                    </IonTabButton>
+                    <IonTabButton tab="tab4" href="/myProfile">
+                        <IonIcon icon={personOutline} />
+                        <IonLabel>My Profile</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="tab5" href="/more">
+                        <IonIcon icon={ellipsisHorizontalOutline} />
+                        <IonLabel>More</IonLabel>
+                    </IonTabButton>
+                </IonTabBar>
+            </IonTabs>
+        </IonReactRouter>
+    </IonApp>
 );
 
 export default App;

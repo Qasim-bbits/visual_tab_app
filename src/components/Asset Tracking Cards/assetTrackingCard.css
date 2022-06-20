@@ -1,0 +1,16 @@
+.checked-out-button {
+    --background: linear-gradient(90deg, rgb(2, 61, 119) 0%, rgb(5, 129, 252) 100%) !important;
+    height: 15%;
+    --border-radius: 10px;
+}
+.asset-cards {
+    display: flex;
+    width: 35vw;
+    height: 100%;
+    padding-top: 10%;
+    margin-bottom: 20%;
+    --ion-background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}

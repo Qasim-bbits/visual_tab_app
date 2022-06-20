@@ -1,0 +1,66 @@
+.content-modal {
+    --ion-background-color: #fff;
+    min-height: 100%;
+    border-radius: 30px 30px 0 0;
+    margin-top: 5%;
+    width: 101%;
+    margin-left: -1%;
+    overflow: visible;
+}
+.search-bar {
+    position: relative;
+    top: -20px;
+}
+.header-logo {
+    width: 25px;
+    height: 25px;
+    --border-radius: 0;
+}
+.app-toolbar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 2%;
+}
+.app-page {
+    --ion-background-color: linear-gradient(90deg, rgba(113,183,251,1) 0%, rgba(19,121,219,1) 96%);
+}
+.searchbar-input.sc-ion-searchbar-md {
+    margin: auto;
+    width: 70%;
+    border-radius: 15px;
+    background-position: left 8px center;
+    height: auto;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #7f8490;
+    background-color: white;
+    -webkit-box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1) !important;
+}
+
+ion-searchbar ion-icon {
+    right: 20% !important;
+    left: auto !important;
+}
+
+.welcome-greetings {
+    margin-top: 15px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+ion-toggle {
+    --background: #ffffff;
+    --background-checked: #0a4b6b;
+
+    --handle-background: #ffffff;
+    --handle-background-checked: #0a4b6b;
+}
+ion-toolbar ion-row ion-icon {
+    color: #fff;
+}
