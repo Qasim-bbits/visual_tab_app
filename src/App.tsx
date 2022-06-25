@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import {
     IonApp,
@@ -9,17 +10,17 @@ import {
     IonIcon,
     IonLabel,
     IonAvatar,
-    IonMenu,
-    IonList,
-    IonContent,
+    IonSplitPane,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { homeOutline, personOutline, ellipsisHorizontalOutline, cameraOutline, diamondOutline } from 'ionicons/icons';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/login';
-import AssetTracking from './pages/Asset Tracking/assetTracking';
+import AssetTracking from './pages/AssetTracking/assetTracking';
 import Wrapper from './components/Wrapper/wrapper';
-import NoOfItems from './pages/Asset Tracking/No of Items/noOfItems';
+import NoOfItems from './pages/AssetTracking/NoOfItems/noOfItems';
+import Menu from './components/Menu/Menu';
+import QrScanner from './components/QRScanner/qrScanner';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -42,24 +43,23 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
+const App: React.FC = () => {
+    return(
     <IonApp>
         <IonReactRouter>
-            <IonMenu contentId="main">
-                <IonContent>
-                    <IonList>
-                        // here you can put your side menu items with router links
-                    </IonList>
-                </IonContent>
-            </IonMenu>
+            <IonSplitPane contentId="main">
+                <Menu
+                />
             <IonTabs>
-                <IonRouterOutlet>
+                <IonRouterOutlet id="main">
                     <Route path="/" component={Login} exact={true} />
-                        <Wrapper>
+                        <Wrapper
+                        >
                             <Route path="/home" component={Home} exact={true} />
                             <Route path="/myAssets" component={AssetTracking} exact={true} />
                             <Route path="/noOfItems" component={NoOfItems} exact={true} />
                         </Wrapper>
+                    <Route path="/camera" component={QrScanner} exact={true} />
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom" style={{overflow: 'visible'}}>
                     <IonTabButton tab="tab1" href="/home">
@@ -71,8 +71,15 @@ const App: React.FC = () => (
                         <IonLabel>My Assets</IonLabel>
                     </IonTabButton>
                     <IonTabButton tab="tab3" href="/camera">
-                        <IonAvatar className='camera-icon' style={{backgroundColor:'rgba(19,121,219,1)'}}>
-                            <IonIcon icon={cameraOutline} size='large' style={{color:'white'}}/>
+                        <IonAvatar
+                            className='camera-icon'
+                            style={{
+                                background:'linear-gradient(90deg, rgba(5,129,252,1) 0%, rgba(113,183,251,1) 100%)',
+                                height: '50px',
+                                width: '50px'
+                            }}
+                        >
+                            <IonIcon icon={cameraOutline} size='large' style={{color:'white', marginTop: '5px'}}/>
                         </IonAvatar>
                     </IonTabButton>
                     <IonTabButton tab="tab4" href="/myProfile">
@@ -85,8 +92,10 @@ const App: React.FC = () => (
                     </IonTabButton>
                 </IonTabBar>
             </IonTabs>
+            </IonSplitPane>
         </IonReactRouter>
     </IonApp>
-);
+)
+};
 
 export default App;

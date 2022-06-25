@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  IonAvatar,
-  IonButton,
-  IonButtons,
+  IonAvatar, IonButton,
   IonCard,
   IonContent,
   IonHeader,
@@ -10,31 +8,37 @@ import {
   IonItem,
   IonList,
   IonMenu,
-  IonMenuButton,
   IonPage,
   IonRow,
-  IonSearchbar, IonTitle,
+  IonSearchbar,
+  IonTitle,
   IonToggle,
-  IonToolbar
+  IonToolbar,
+  IonMenuToggle,
+  IonButtons,
+  IonMenuButton,
 } from "@ionic/react";
 import './wrapper.css';
 import Logo from "../../resources/Logos/only-V-01.svg";
 import {Typography} from "@mui/material";
+import { menuController } from "@ionic/core";
 
 function Wrapper(props) {
-  const {children} = props;
+
+  const {
+    children,
+  } = props;
+
   return (
     <IonPage className='app-page'>
       <IonHeader>
         <IonToolbar>
-          <IonRow className='app-toolbar' >
-            <IonAvatar className='header-logo' t>
-              <img src={Logo}/>
-            </IonAvatar>
-            <IonButtons slot="start">
-              <IonMenuButton />
-            </IonButtons>
-          </IonRow>
+          <IonButton onClick={async () => await menuController.toggle()} slot='end' className='menu-button'>
+            <IonMenuButton autoHide={false} color='light' disabled={false} />
+          </IonButton>
+          <IonAvatar className='header-logo'>
+            <img src={Logo}/>
+          </IonAvatar>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

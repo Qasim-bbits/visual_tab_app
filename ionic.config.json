@@ -1,5 +1,5 @@
 {
-  "name": "visual_tab_app",
+  "name": "vt-dashboard-app",
   "integrations": {
     "capacitor": {}
   },

@@ -15,6 +15,7 @@
     width: 25px;
     height: 25px;
     --border-radius: 0;
+    margin-left: 5%;
 }
 .app-toolbar {
     display: flex;
@@ -61,6 +62,7 @@ ion-toggle {
     --handle-background: #ffffff;
     --handle-background-checked: #0a4b6b;
 }
-ion-toolbar ion-row ion-icon {
-    color: #fff;
+.menu-button {
+    --background: none;
+    --box-shadow: 0;
 }

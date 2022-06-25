@@ -2,7 +2,6 @@ import React from 'react';
 import {
   IonCard, IonCol,
   IonContent,
-  IonIcon,
   IonRow,
 } from '@ionic/react';
 import {Typography} from "@mui/material";

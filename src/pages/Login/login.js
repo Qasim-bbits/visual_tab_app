@@ -5,7 +5,7 @@ import {
   IonCheckbox,
   IonCol,
   IonContent,
-  IonGrid,
+  IonGrid, IonItem,
   IonLabel,
   IonRow,
 } from "@ionic/react";
@@ -44,12 +44,12 @@ function Login() {
               Visual Tab
             </Typography>
           </IonCol>
-          <IonCol size="8" offset="2.5">
+          <IonCol size="8" offset="3.4">
             <IonRow>
-              <Typography sx={{color: '#2E2E2E', fontSize: '20px'}}>
+              <Typography sx={{color: '#2E2E2E', fontSize: '14px'}}>
                 Powered By&nbsp;
               </Typography>
-              <Typography sx={{color: '#8f0707', fontSize: '20px'}}>
+              <Typography sx={{color: '#8f0707', fontSize: '14px'}}>
                 Ventra Cloud
               </Typography>
             </IonRow>
@@ -98,17 +98,21 @@ function Login() {
             />
           </IonCol>
         </IonRow>
-        <IonRow>
-          <IonCol size="6" size-lg offset="1">
-              <IonLabel>Remember me</IonLabel>
-              <IonCheckbox defaultChecked={true} slot="start" />
+        <IonRow style={{display: 'flex', alignItems: 'center'}}>
+          <IonCol size="6" offset="1">
+            <IonItem className='remember-me-checkbox'>
+              <IonLabel style={{fontSize: '13px'}}>Remember me</IonLabel>
+              <IonCheckbox defaultChecked={true} slot="start" style={{marginInlineEnd: '10px'}}/>
+            </IonItem>
           </IonCol>
-          <IonCol size="4" size-lg>
-            <Typography align='right' sx={{fontSize: '13px'}}>
-              <Link href="#" >
-                Forgot password ?
-              </Link>
-            </Typography>
+          <IonCol size="4">
+            <IonItem className='forget-password'>
+              <Typography align='right' sx={{fontSize: '13px'}}>
+                <Link href="#" >
+                  Forgot password?
+                </Link>
+              </Typography>
+            </IonItem>
           </IonCol>
         </IonRow>
         <IonRow>
