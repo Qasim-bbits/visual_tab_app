@@ -1,0 +1,11 @@
+.asset-cards {
+    display: flex;
+    width: 35vw;
+    height: 100%;
+    padding-top: 10%;
+    margin-bottom: 20%;
+    --ion-background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -1,0 +1,5 @@
+.checked-out {
+    --background: linear-gradient(90deg, rgb(2, 61, 119) 0%, rgb(5, 129, 252) 100%) !important;
+    height: 5vh;
+    --border-radius: 20px;
+}
